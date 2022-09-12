@@ -1,3 +1,7 @@
+interface TextProps {
+  text: string;
+}
+
 export const App = () => {
   return (
     <>
@@ -7,10 +11,6 @@ export const App = () => {
     </>
   );
 };
-
-interface TextProps {
-  text: string;
-}
 
 export const Button = ({ text }: TextProps) => {
   return <button>{text}</button>;
