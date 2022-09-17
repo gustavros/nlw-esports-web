@@ -27,38 +27,56 @@ export const AdGame = () => {
 
   return (
     <>
-      {ads.map((ad) => {
-        return (
-          <div className="text-2xl text-white mb-4 bg-[#2A2634] rounded">
-            <h1>Nome: {ad.name}</h1>
-            <h2>
-              Tempo de jogo:{" "}
-              {ad.yearsPlaying > 1
-                ? `${ad.yearsPlaying} anos`
-                : `${ad.yearsPlaying} ano`}
-            </h2>
-            <p>
-              Disponibilidade: {ad.hourStart}hr - {ad.hourEnd}hr
-            </p>
-            <p>
-              Chamada de áudio?{" "}
-              {ad.useVoiceChannel ? (
-                <p className="text-green-500">Sim</p>
-              ) : (
-                <p className="text-red-500">Não</p>
-              )}
-            </p>
-
-            <button
-              type="submit"
-              className=" bg-violet-500 px-5 h-12 rounded-md font-semibold flex items-center gap-3 hover:bg-violet-600 transition-colors"
-            >
-              <GameController size={24} />
-              Conectar
-            </button>
-          </div>
-        );
-      })}
+      <div className="flex">
+        {ads.map((ad) => {
+          return (
+            <div className="text-2xl text-white mb-4 bg-[#2A2634] rounded-lg max-w-[25rem] p-5 flex flex-col gap-4 m-4">
+              <div>
+                <h1 className="text-[#C4C4C6]">Nome</h1>
+                <strong>{ad.name}</strong>
+              </div>
+              <div>
+                <h1 className="text-[#C4C4C6]">Tempo de jogo</h1>
+                {ad.yearsPlaying > 1 ? (
+                  <strong>{ad.yearsPlaying} anos</strong>
+                ) : (
+                  <strong>{ad.yearsPlaying} ano</strong>
+                )}
+              </div>
+              <div className="w-full">
+                <h1 className="text-[#C4C4C6]">Disponibilidade</h1>
+                <div className="flex">
+                  {ad.weekDays.length > 1 ? (
+                    <strong className="mr-1 ">{ad.weekDays.length} dias</strong>
+                  ) : (
+                    <strong className="">{ad.weekDays.length} dia</strong>
+                  )}{" "}
+                  •{" "}
+                  <span className="ml-1">
+                    <span>{ad.hourStart}hrs </span>-
+                    <span> {ad.hourEnd}hrs</span>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <h1 className="text-[#C4C4C6]">Chamada de áudio?</h1>
+                {ad.useVoiceChannel ? (
+                  <p className="text-green-500">Sim</p>
+                ) : (
+                  <p className="text-red-500">Não</p>
+                )}
+              </div>
+              <button
+                type="submit"
+                className=" bg-violet-500 px-5 h-12 rounded-md font-semibold flex items-center gap-3 hover:bg-violet-600 transition-colors w-fit"
+              >
+                <GameController size={24} />
+                Conectar
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

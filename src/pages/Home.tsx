@@ -183,6 +183,18 @@ export const Home = () => {
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
+      <footer className="mt-8 text-1xl text-white ">
+        <h1>
+          Criado com <span className="text-red-400">❤</span> por{" "}
+          <a
+            className="text-violet-400"
+            href="https://github.com/gustavros"
+            target={"_blank"}
+          >
+            Gustavo Santana
+          </a>
+        </h1>
+      </footer>
     </div>
   );
 };
