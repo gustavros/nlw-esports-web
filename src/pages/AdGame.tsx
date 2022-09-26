@@ -21,16 +21,18 @@ export const AdGame = () => {
       .then((response) => response.json())
       .then((data) => {
         setAds(data);
-        console.log(data);
       });
   }, []);
 
   return (
     <>
-      <div className="flex">
+      <div className="flex md:flex-col">
         {ads.map((ad) => {
           return (
-            <div className="text-2xl text-white mb-4 bg-[#2A2634] rounded-lg max-w-[25rem] p-5 flex flex-col gap-4 m-4">
+            <div
+              key={ad.id}
+              className="text-2xl text-white mb-4 bg-[#2A2634] rounded-lg p-5 flex flex-col gap-4 m-4 "
+            >
               <div>
                 <h1 className="text-[#C4C4C6]">Nome</h1>
                 <strong>{ad.name}</strong>
@@ -47,12 +49,12 @@ export const AdGame = () => {
                 <h1 className="text-[#C4C4C6]">Disponibilidade</h1>
                 <div className="flex">
                   {ad.weekDays.length > 1 ? (
-                    <strong className="mr-1 ">{ad.weekDays.length} dias</strong>
+                    <strong className="mr-1">{ad.weekDays.length} dias</strong>
                   ) : (
-                    <strong className="">{ad.weekDays.length} dia</strong>
+                    <strong className="mr-1">{ad.weekDays.length} dia</strong>
                   )}{" "}
                   •{" "}
-                  <span className="ml-1">
+                  <span>
                     <span>{ad.hourStart}hrs </span>-
                     <span> {ad.hourEnd}hrs</span>
                   </span>
